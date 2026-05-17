@@ -11,6 +11,11 @@ RUN sed -i \
       -e '/^DEBUG_CLANG38_X64_CC_FLAGS/ s|$| -I/usr/x86_64-linux-gnu/include|' \
       /home/vscode/edk2/BaseTools/Conf/tools_def.template
 
+# Make git's bundled diff-highlight available on PATH (some ~/.gitconfig
+# pagers reference it; the image ships it non-executable and outside PATH).
+RUN install -m 0755 /usr/share/doc/git/contrib/diff-highlight/diff-highlight \
+      /usr/local/bin/diff-highlight
+
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-here>
