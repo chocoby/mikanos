@@ -9,6 +9,11 @@
 		"args": { "VARIANT": "vnc" }
 	},
 
+	// Claude Code CLI (Node.js is installed automatically by the feature).
+	"features": {
+		"ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+	},
+
 	// =======================================================================
 	// noVNC enabled (variant: vnc). Open the forwarded port 6080 in a browser
 	// to see QEMU's screen. Works locally and in GitHub Codespaces.
