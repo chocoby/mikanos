@@ -16,6 +16,13 @@ RUN sed -i \
 RUN install -m 0755 /usr/share/doc/git/contrib/diff-highlight/diff-highlight \
       /usr/local/bin/diff-highlight
 
+# Clone the upstream MikanOS into the user's home as a reference for the book
+# (lets you diff against / copy from the original source at any chapter tag).
+ARG USERNAME=vscode
+USER ${USERNAME}
+RUN git clone https://github.com/uchan-nos/mikanos.git /home/${USERNAME}/mikanos
+USER root
+
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-here>
